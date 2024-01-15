@@ -28,20 +28,20 @@ public:
     {
         initialise();
 
-        std::cout << std::format("P3\n {} {}\n255\n",
-                                 _image_width,
-                                 _image_height);
+        //        std::cout << std::format("P3\n {} {} \n255\n",
+        //                                 _image_width,
+        //                                 _image_height);
 
-        //std::cout << "P3\n " << _image_width << ' ' << _image_height
-        //        << "\n255\n";
+        std::cout << "P3\n " << _image_width << ' ' << _image_height
+                  << "\n255\n";
 
         for (int j{0}; j < _image_height; ++j)
         {
-            std::clog << std::format("\rScanlines remaining: {} ",
-                                     _image_height - j)
+            //            std::clog << std::format("\rScanlines remaining: {} ",
+            //                                     _image_height - j)
+            //                      << std::flush;
+            std::clog << "\rScanlines remaining: " << _image_height - j << ' '
                       << std::flush;
-            //std::clog << "\rScanlines remaining: " << _image_height - j << ' '
-            //         << std::flush;
             for (int i{0}; i < _image_width; ++i)
             {
                 Colour pixel_colour{0.0, 0.0, 0.0};
@@ -171,7 +171,7 @@ private:
 
         const Vec3 unit_direction{unit_vector(ray.direction())};
         // NOLINTNEXTLINE(readability-magic-numbers)
-        auto a_value{0.5 * (unit_direction.y() + 1.0)};
+        auto a_value(0.5 * (unit_direction.y() + 1.0));
 
         return (1.0 - a_value) * Colour{1.0, 1.0, 1.0} +
                // NOLINTNEXTLINE(readability-magic-numbers)
