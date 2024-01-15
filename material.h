@@ -2,6 +2,7 @@
 #define MATERIAL_H
 
 #include "colour.h"
+#include "hittable.h"
 #include "ray.h"
 #include "utility.h"
 
@@ -21,7 +22,7 @@ public:
 class Lambertian : public Material
 {
 public:
-    Lambertian(const Colour &albedo) : _albedo(albedo)
+    explicit Lambertian(const Colour &albedo) : _albedo(albedo)
     {
     }
 

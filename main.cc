@@ -15,7 +15,7 @@ int main()
     HittableList world;
 
     // NOLINTBEGIN(readability-magic-numbers)
-    auto ground_material{std::make_shared<Lambertian>(Colour{0.5, 0.5, 0.5})};
+    auto ground_material(std::make_shared<Lambertian>(Colour{0.5, 0.5, 0.5}));
     world.add(
         std::make_shared<Sphere>(Point3{0, -1000, 0}, 1000, ground_material));
 
@@ -44,7 +44,7 @@ int main()
                 {
                     // metal
                     const Colour albedo{Colour::random(0.5, 1)};
-                    auto fuzz{random_double(0, 0.5)};
+                    auto fuzz(random_double(0, 0.5));
                     sphere_material = std::make_shared<Metal>(albedo, fuzz);
                     world.add(
                         std::make_shared<Sphere>(centre, 0.2, sphere_material));
@@ -60,13 +60,13 @@ int main()
         }
     }
 
-    auto material1{std::make_shared<Dielectric>(1.5)};
+    auto material1(std::make_shared<Dielectric>(1.5));
     world.add(std::make_shared<Sphere>(Point3{0, 1, 0}, 1.0, material1));
 
-    auto material2{std::make_shared<Lambertian>(Colour{0.4, 0.2, 0.1})};
+    auto material2(std::make_shared<Lambertian>(Colour{0.4, 0.2, 0.1}));
     world.add(std::make_shared<Sphere>(Point3{-4, 1, 0}, 1.0, material2));
 
-    auto material3{std::make_shared<Metal>(Colour{0.7, 0.6, 0.5}, 0.0)};
+    auto material3(std::make_shared<Metal>(Colour{0.7, 0.6, 0.5}, 0.0));
     world.add(std::make_shared<Sphere>(Point3{4, 1, 0}, 1.0, material3));
 
     Camera camera;
