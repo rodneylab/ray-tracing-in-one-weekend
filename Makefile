@@ -2,7 +2,7 @@ CXX = g++
 CXX17FLAGS = -std=c++17 -pedantic-errors -Werror -Wall -Weffc++ -Wextra \
 	-Wconversion -Wsign-conversion -DNDEBUG -O2
 CXX20FLAGS = -std=c++20 -pedantic-errors -Werror -Wall -Weffc++ -Wextra \
-	-Wconversion -Wsign-conversion -DNDEBUG -O2
+	-Wconversion -Wsign-conversion -DNDEBUG -O2 -g -fsanitize=address
 CXX23FLAGS = -std=c++2b -pedantic-errors -Werror -Wall -Weffc++ -Wextra \
 	-Wconversion -Wsign-conversion -DNDEBUG -O2
 
